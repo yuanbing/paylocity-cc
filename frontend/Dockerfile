@@ -1,14 +1,10 @@
-FROM grpcweb/prereqs
-
+FROM yuanbing/gen-js-api
 ADD . /src
 
 WORKDIR /src
 
-RUN mkdir api
-
-RUN protoc -I=. deduction.proto \
---js_out=import_style=commonjs:./api \
---grpc-web_out=import_style=commonjs,mode=grpcwebtext:./api
+RUN mkdir api && \
+	cp /proto/jsclient/*.js /src/api/
 
 
 RUN npm install && \

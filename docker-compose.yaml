@@ -1,5 +1,10 @@
 version: "3.7"
 services:
+  gen-js-api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    image: yuanbing/gen-js-api
 
   envoy:
     build:
@@ -26,3 +31,5 @@ services:
     image: yuanbing/deduction-frontend
     ports:
       - "8081:8081"
+    depends_on:
+      - gen-js-api
