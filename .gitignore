@@ -130,5 +130,7 @@ dist
 .pnp.*
 
 .DS_Store
+frontend/.DS_Store
 deduction/v1/
 frontend/node_modules/
+
